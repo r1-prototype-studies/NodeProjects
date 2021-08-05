@@ -21,6 +21,7 @@
     this.guestList.forEach((guest) => {
       console.log(`Guest ${guest} is attending ${this.name}`);
     });
+* Difference between filter and find is that find will stop when it gets a hit while traversing thru the list.
 * 
 ## Steps
 1.  Run the below command in the project root directory

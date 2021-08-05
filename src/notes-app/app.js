@@ -52,7 +52,22 @@ yargs.command({
 yargs.command({
 	command: 'read',
 	description: 'Read a note',
-	handler: () => console.log('Read note!'),
+	builder: {
+		title: {
+			describe: 'Note title',
+			demandOption: true, // Makes it mandatory
+			type: 'string',
+		},
+	},
+	handler: argv => {
+		const note = notes.readNote(argv.title);
+		if (note) {
+			console.log(chalk.bold.inverse(note.title));
+			console.log(note.body);
+		} else {
+			console.log(chalk.red('Note not found'));
+		}
+	},
 });
 
 // Create a List command
