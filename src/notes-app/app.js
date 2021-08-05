@@ -1,25 +1,54 @@
-// These codes are to write contents to the notes text file
-// const fs = require('fs');
-// fs.writeFileSync('./temp/notes.txt', 'Text entered programmatically.');
-// fs.appendFileSync('./temp/notes.txt', ' Addition of new text.');
+const chalk = require('chalk');
+const yargs = require('yargs');
+const getNotes = require('./notes.js');
 
-// const getNotes = require('./notes');
-// var notes = getNotes();
-// console.log(notes);
+// const command = process.argv[2];
+// if (command === 'add') {
+// 	console.log('Adding note!');
+// } else if (command === 'remove') {
+// 	console.log('Removing note!');
+// }
 
-// const validator = require('validator');
-// console.log(validator.isEmail('testing@test.com')); // true
-// console.log(validator.isEmail('testing.com')); // false
+// console.log(process.argv);
+// console.log(yargs.argv);
 
-// const chalk = require('chalk');
-// console.log(chalk.green('Success'));
-// console.log(chalk.bold('bold'));
-// console.log(chalk.inverse('Inverse'));
+// Customizes yargs version
+yargs.version('1.1.1');
 
-// const miles = 18;
-// const calculateFeet = miles => miles * 5280;
+// Create an Add command
+yargs.command({
+	command: 'add',
+	description: 'Add a note',
+	handler: function () {
+		console.log('Added note!');
+	},
+});
 
-// console.log(chalk`
-//     There are {bold 5280 feet} in a mile.
-//     In {bold ${miles} miles}, there are {green.bold ${calculateFeet(miles)} feet}.
-// `);
+// Create a Remove command
+yargs.command({
+	command: 'remove',
+	description: 'Remove a note',
+	handler: function () {
+		console.log('Removed note!');
+	},
+});
+
+// Create a Read command
+yargs.command({
+	command: 'read',
+	description: 'Read a note',
+	handler: function () {
+		console.log('Read note!');
+	},
+});
+
+// Create a List command
+yargs.command({
+	command: 'list',
+	description: 'List your notes',
+	handler: function () {
+		console.log('List note!');
+	},
+});
+
+console.log(yargs.argv);

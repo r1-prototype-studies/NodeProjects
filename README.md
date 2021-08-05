@@ -11,6 +11,8 @@
 * Use forward slash "/" for file navigation.
 * Use nodemon instead of node in the command line if nodemon is installed.
 * ctrl + C stops the nodemon process.
+* Browser has windows and documents. System has process and global
+* process.argv &rarr; argv stands for argument vector and it has the list of arguments provided.
 * 
 ## Steps
 1.  Run the below command in the project root directory
@@ -27,7 +29,10 @@
 4. Install nodemon package from npm globally
    ``` bash
    npm install nodemon -g
-5. 
+5. Install Yargs package from npm 
+    ``` bash
+    npm install yargs 
+6. 
 
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                                                       |
@@ -36,6 +41,7 @@
 | 2      | validator   | npm         | Validates / Sanitizes the input                                                               |
 | 3      | chalk       | npm         | Customizes the text displayed in the console                                                  |
 | 4      | nodemon     | npm         | Automatically restarting the node application when file changes in the directory are detected |
+| 5      | Yargs       | npm         | Parsing command line arguments                                                                |
 
 ## References
 * https://www.npmjs.com/
