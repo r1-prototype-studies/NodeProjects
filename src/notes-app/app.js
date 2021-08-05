@@ -59,7 +59,13 @@ yargs.command({
 yargs.command({
 	command: 'list',
 	description: 'List your notes',
-	handler: () => console.log('List note!'),
+	handler: () => {
+		console.log(chalk.bold.underline.inverse('Your Notes:- '));
+		const savedNotes = notes.getNotes();
+		savedNotes.forEach(note =>
+			console.log(`${savedNotes.indexOf(note) + 1}. ${note.title}`)
+		);
+	},
 });
 
 yargs.parse();
