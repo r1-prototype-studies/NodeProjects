@@ -1,6 +1,6 @@
 const chalk = require('chalk');
 const yargs = require('yargs');
-const getNotes = require('./notes.js');
+const notes = require('./notes.js');
 
 // const command = process.argv[2];
 // if (command === 'add') {
@@ -32,8 +32,7 @@ yargs.command({
 		},
 	},
 	handler: function (argv) {
-		console.log('Title: ', argv.title);
-		console.log('Body: ', argv.body);
+		notes.addNote(argv.title, argv.body);
 	},
 });
 
@@ -41,8 +40,15 @@ yargs.command({
 yargs.command({
 	command: 'remove',
 	description: 'Remove a note',
-	handler: function () {
-		console.log('Removed note!');
+	builder: {
+		title: {
+			describe: 'Note title',
+			demandOption: true, // Makes it mandatory
+			type: 'string',
+		},
+	},
+	handler: function (argv) {
+		notes.removeNote(argv.title);
 	},
 });
 

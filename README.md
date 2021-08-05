@@ -14,6 +14,8 @@
 * Browser has windows and documents. System has process and global
 * process.argv &rarr; argv stands for argument vector and it has the list of arguments provided.
 * Yargs parse goes thru the process of pasrsing the arguments with all of the configuration details that are provided to yargs
+* JSON.stringify &rarr; Converts javascript object to Json string.
+* JSON.parse &rarr; Converts Json string to javascript object.
 * 
 ## Steps
 1.  Run the below command in the project root directory
