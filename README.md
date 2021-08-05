@@ -13,6 +13,7 @@
 * ctrl + C stops the nodemon process.
 * Browser has windows and documents. System has process and global
 * process.argv &rarr; argv stands for argument vector and it has the list of arguments provided.
+* Yargs parse goes thru the process of pasrsing the arguments with all of the configuration details that are provided to yargs
 * 
 ## Steps
 1.  Run the below command in the project root directory
@@ -32,7 +33,10 @@
 5. Install Yargs package from npm 
     ``` bash
     npm install yargs 
-6. 
+6. Use the below command to add a note
+    ``` bash
+    node app.js add --title "New note" --body "Testing"
+7. 
 
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                                                       |

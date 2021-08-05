@@ -19,8 +19,21 @@ yargs.version('1.1.1');
 yargs.command({
 	command: 'add',
 	description: 'Add a note',
-	handler: function () {
-		console.log('Added note!');
+	builder: {
+		title: {
+			describe: 'Note title',
+			demandOption: true, // Makes it mandatory
+			type: 'string',
+		},
+		body: {
+			describe: 'Note body',
+			demandOption: true, // Makes it mandatory
+			type: 'string',
+		},
+	},
+	handler: function (argv) {
+		console.log('Title: ', argv.title);
+		console.log('Body: ', argv.body);
 	},
 });
 
@@ -51,4 +64,4 @@ yargs.command({
 	},
 });
 
-console.log(yargs.argv);
+yargs.parse();
