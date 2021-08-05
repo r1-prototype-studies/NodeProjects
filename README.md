@@ -38,7 +38,10 @@
 6. Use the below command to add a note
     ``` bash
     node app.js add --title "New note" --body "Testing"
-7. 
+7. Use the below command to remove a note
+    ``` bash
+    node app.js remove --title "Test"
+8.
 
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                                                       |
