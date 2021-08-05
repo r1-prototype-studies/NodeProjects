@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+//const chalk = require('chalk');
 const yargs = require('yargs');
 const notes = require('./notes.js');
 
@@ -59,28 +59,14 @@ yargs.command({
 			type: 'string',
 		},
 	},
-	handler: argv => {
-		const note = notes.readNote(argv.title);
-		if (note) {
-			console.log(chalk.bold.inverse(note.title));
-			console.log(note.body);
-		} else {
-			console.log(chalk.red('Note not found'));
-		}
-	},
+	handler: argv => notes.readNote(argv.title),
 });
 
 // Create a List command
 yargs.command({
 	command: 'list',
 	description: 'List your notes',
-	handler: () => {
-		console.log(chalk.bold.underline.inverse('Your Notes:- '));
-		const savedNotes = notes.getNotes();
-		savedNotes.forEach(note =>
-			console.log(`${savedNotes.indexOf(note) + 1}. ${note.title}`)
-		);
-	},
+	handler: () => notes.listNotes(),
 });
 
 yargs.parse();
