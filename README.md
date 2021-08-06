@@ -10,6 +10,10 @@
   - [Steps](#steps-1)
   - [Modules used](#modules-used-1)
   - [References](#references-1)
+- [Web Server](#web-server)
+  - [Notes](#notes-2)
+  - [Steps](#steps-2)
+  - [References](#references-2)
 # Notes App
 ## Notes
 * Use Asynchronous or callback functions.
@@ -131,4 +135,18 @@
 * https://nodejs.org/dist/latest-v14.x/docs/api/
 * https://nodejs.org/dist/latest-v14.x/docs/api/http.html
 * https://nodejs.org/dist/latest-v14.x/docs/api/https.html
+
+# Web Server 
+## Notes
+* Adding -y flag to ``npm init`` will perform the initialization using the default values
+
+## Steps
+1. Run the below command in the project root directory
+    ``` bash
+    npm init -y
+3. Install request module using the below command
+    ``` bash
+    npm install express
+4. 
+## References
 * https://expressjs.com/
