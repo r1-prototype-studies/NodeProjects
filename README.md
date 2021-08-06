@@ -149,16 +149,21 @@
 1. Run the below command in the project root directory
     ``` bash
     npm init -y
-3. Install request module using the below command
+2. Install express module using the below command
     ``` bash
     npm install express
-4. 
+3. Install hbs module using the below command
+    ``` bash
+    npm install hbs
+4. ``public`` &rarr; has the public servable contents like html, styles, scripts
+5. ``view`` &rarr; dynamic rendering views
 
 ## Modules used
-| Sl No. | Module Name | Module Type | Purpose                                                           |
-| ------ | ----------- | ----------- | ----------------------------------------------------------------- |
-| 1      | express     | npm         | provides a robust set of features for web and mobile applications |
-| 2      | path        | core        | utilities for working with file and directory paths               |
+| Sl No. | Module Name | Module Type | Purpose                                                                        |
+| ------ | ----------- | ----------- | ------------------------------------------------------------------------------ |
+| 1      | express     | npm         | provides a robust set of features for web and mobile applications              |
+| 2      | path        | core        | utilities for working with file and directory paths                            |
+| 3      | hbs         | npm         | handlebars plugin for express. Helps in dynamic content rendering / templating |
 
 
 
