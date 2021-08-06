@@ -66,8 +66,8 @@ const readNote = title => {
 		console.log(chalk.red('Note not found'));
 	}
 };
+
 module.exports = {
-	getNotes: getNotes,
 	addNote: addNote,
 	removeNote: removeNote,
 	readNote: readNote,

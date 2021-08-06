@@ -5,6 +5,11 @@
   - [Steps](#steps)
   - [Modules used](#modules-used)
   - [References](#references)
+- [Weather Application](#weather-application)
+  - [Notes](#notes-1)
+  - [Steps](#steps-1)
+  - [Modules used](#modules-used-1)
+  - [References](#references-1)
 # Notes App
 ## Notes
 * Use Asynchronous or callback functions.
@@ -22,7 +27,7 @@
       console.log(`Guest ${guest} is attending ${this.name}`);
     });
 * Difference between filter and find is that find will stop when it gets a hit while traversing thru the list.
-* 
+* To allow debugging using ``debugger``, we should run the node command as ``node inspect``. If it throws timeout error in windows machine, use ``node --inspect-brk``. Go to Chrome and open chrome://inspect. In chrome inspect, ``esc`` button will toggle console view
 ## Steps
 1.  Run the below command in the project root directory
     ``` bash
@@ -47,7 +52,19 @@
 7. Use the below command to remove a note
     ``` bash
     node app.js remove --title "Test"
-8.
+8. Use the below command to list the note
+    ``` bash
+    node app.js list
+9. Use the below command to read the note
+    ``` bash
+    node app.js read --title "Test"
+10. Use the below command to debug
+    ``` bash
+    node inspect app.js read --title "Test"
+11. If the above command provides timeout error, execute the below command
+    ``` bash
+    node --inspect-brk app.js read --title "Test"
+12. Open chrome://inspect to start debugging
 
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                                                       |
@@ -61,4 +78,29 @@
 ## References
 * https://www.npmjs.com/
 * https://www.npmjs.com/package/validator
-* 
+ 
+ # Weather Application
+ ## Notes
+ * ``setTimeout`` has 2 arguments. First is a function and second is number of milliseconds.
+ * [``postman-request``](https://www.npmjs.com/package/postman-request) is an alternative for [``request``](https://www.npmjs.com/package/request) module 
+ * The output of request is error and response. Only one of the object will be defined at a time. If error is present, response will be undefined.
+ * Callback function is a function that is passed as an argument of a function with the intension of calling it later. 
+ * 
+ ## Steps
+1. Signup in weatherstack.com &rarr; 6637c8d7a2df469dea2117ded3eaec77
+2. Run the below command in the project root directory
+    ``` bash
+    npm init
+3. Install request module using the below command
+    ``` bash
+    npm install request
+4. Signup in mapbox.com &rarr; pk.eyJ1IjoieWFnb3JvYmllIiwiYSI6ImNrcnpsZ293MTBhOTUycXRqZzdmaGZjYWoifQ.XAItOxeA42gBksW8YY9WqA
+## Modules used
+| Sl No. | Module Name | Module Type | Purpose            |
+| ------ | ----------- | ----------- | ------------------ |
+| 1      | request     | npm package | To make http calls |
+
+## References
+* https://darksky.net/
+* https://weatherstack.com/
+* https://www.mapbox.com/
