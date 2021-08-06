@@ -13,6 +13,7 @@
 - [Web Server](#web-server)
   - [Notes](#notes-2)
   - [Steps](#steps-2)
+  - [Modules used](#modules-used-2)
   - [References](#references-2)
 # Notes App
 ## Notes
@@ -139,6 +140,10 @@
 # Web Server 
 ## Notes
 * Adding -y flag to ``npm init`` will perform the initialization using the default values
+* ``__dirname`` &rarr; Absolute folder path
+* ``__filename`` &rarr; File name along with the folder path
+* For better organizing, first provide the core modules followed by npm modules.
+
 
 ## Steps
 1. Run the below command in the project root directory
@@ -148,5 +153,27 @@
     ``` bash
     npm install express
 4. 
+
+## Modules used
+| Sl No. | Module Name | Module Type | Purpose                                                           |
+| ------ | ----------- | ----------- | ----------------------------------------------------------------- |
+| 1      | express     | npm         | provides a robust set of features for web and mobile applications |
+| 2      | path        | core        | utilities for working with file and directory paths               |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## References
 * https://expressjs.com/
