@@ -118,11 +118,17 @@
     npm install request
 4. Signup in mapbox.com &rarr; pk.eyJ1IjoieWFnb3JvYmllIiwiYSI6ImNrcnpsZ293MTBhOTUycXRqZzdmaGZjYWoifQ.XAItOxeA42gBksW8YY9WqA
 ## Modules used
-| Sl No. | Module Name | Module Type | Purpose            |
-| ------ | ----------- | ----------- | ------------------ |
-| 1      | request     | npm package | To make http calls |
+| Sl No. | Module Name | Module Type | Purpose                       |
+| ------ | ----------- | ----------- | ----------------------------- |
+| 1      | request     | npm package | To make http calls            |
+| 2      | http        | core        | To use HTTP server and client |
+| 3      | https       | core        | HTTP over TLS                 |
 
 ## References
 * https://darksky.net/
 * https://weatherstack.com/
 * https://www.mapbox.com/
+* https://nodejs.org/dist/latest-v14.x/docs/api/
+* https://nodejs.org/dist/latest-v14.x/docs/api/http.html
+* https://nodejs.org/dist/latest-v14.x/docs/api/https.html
+* https://expressjs.com/

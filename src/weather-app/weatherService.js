@@ -1,6 +1,5 @@
 const request = require('request');
 const apiKey = '6637c8d7a2df469dea2117ded3eaec77';
-const zipCode = '19018';
 const unit = 'f'; // m s
 
 const getWeather = (latitude, longitude, callback) => {
