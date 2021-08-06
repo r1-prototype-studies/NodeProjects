@@ -85,7 +85,29 @@
  * [``postman-request``](https://www.npmjs.com/package/postman-request) is an alternative for [``request``](https://www.npmjs.com/package/request) module 
  * The output of request is error and response. Only one of the object will be defined at a time. If error is present, response will be undefined.
  * Callback function is a function that is passed as an argument of a function with the intension of calling it later. 
- * 
+ * Property short hand feature is no need to specifically mention if the property and the variable name are the same. Example as below
+    ``` javascript
+    const user = {
+        name, // Short hand feature
+        age: userAge,
+        location: "Philly",
+    };
+* Destructuring means extracting values from an object and assigning to individual variables.
+    ``` javascript
+    const product = {
+        label: "Lays",
+        price: 10,
+        stock: 100,
+        salePrice: undefined,
+    };
+
+    const { label: productLabel, price, salePrice = 15, rating } = product;
+    console.log(productLabel, price, salePrice, rating);
+    ```
+    ``` cmd
+    Lays 10 15 undefined
+* 
+
  ## Steps
 1. Signup in weatherstack.com &rarr; 6637c8d7a2df469dea2117ded3eaec77
 2. Run the below command in the project root directory

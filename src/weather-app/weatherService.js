@@ -6,19 +6,19 @@ const unit = 'f'; // m s
 const getWeather = (latitude, longitude, callback) => {
 	const weatherUrl = `http://api.weatherstack.com/current?access_key=${apiKey}&query=${latitude},${longitude}&units=${unit}`;
 
-	request({ url: weatherUrl, json: true }, (error, response) => {
+	request({ url: weatherUrl, json: true }, (error, { body }) => {
 		if (error) {
 			callback(
 				'Unable to connect to the weather service. Please try again later.'
 			);
-		} else if (response.body.error) {
+		} else if (body.error) {
 			callback('Location not found');
 		} else {
 			const data = {
-				weather: response.body.current.weather_descriptions[0],
-				temperature: response.body.current.temperature,
-				feelslike: response.body.current.feelslike,
-				precip: response.body.current.precip,
+				weather: body.current.weather_descriptions[0],
+				temperature: body.current.temperature,
+				feelslike: body.current.feelslike,
+				precip: body.current.precip,
 			};
 			callback('', data);
 		}
