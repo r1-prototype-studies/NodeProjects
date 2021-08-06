@@ -1,14 +1,22 @@
 const path = require('path');
 const express = require('express');
 
-console.log(__dirname);
-console.log(__filename);
-console.log(path.join(__dirname, '../public'));
+// console.log(__dirname);
+// console.log(__filename);
+// console.log(path.join(__dirname, '../public'));
 
 const app = express();
-const publicDirectoryPath = path.join(__dirname, '../public');
 
+// Define paths for express config
+const publicDirectoryPath = path.join(__dirname, '../public');
+const viewsPath = path.join(__dirname, '../templates');
+
+// Set view engine for express
 app.set('view engine', 'hbs');
+// Set the views path. If the views path is "view", no need to set as below
+app.set('views', viewsPath);
+
+// Set the public path for express
 app.use(express.static(publicDirectoryPath));
 
 app.get('/', (req, res) => {
