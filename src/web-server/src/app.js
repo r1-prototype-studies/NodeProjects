@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const hbs = require('hbs');
 
 // console.log(__dirname);
 // console.log(__filename);
@@ -9,12 +10,16 @@ const app = express();
 
 // Define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public');
-const viewsPath = path.join(__dirname, '../templates');
+const viewsPath = path.join(__dirname, '../templates/views');
+const partialViewsPath = path.join(__dirname, '../templates/partials');
 
 // Set view engine for express
 app.set('view engine', 'hbs');
 // Set the views path. If the views path is "view", no need to set as below
 app.set('views', viewsPath);
+
+// Set the partial path
+hbs.registerPartials(partialViewsPath);
 
 // Set the public path for express
 app.use(express.static(publicDirectoryPath));
@@ -39,6 +44,7 @@ app.get('/help', (req, res) => {
 	const renderData = {
 		title: 'Help',
 		message: 'Reach out to us for help!!!',
+		name: 'R1 Enterprises',
 	};
 	res.render('help', renderData);
 });

@@ -143,6 +143,12 @@
 * ``__dirname`` &rarr; Absolute folder path
 * ``__filename`` &rarr; File name along with the folder path
 * For better organizing, first provide the core modules followed by npm modules.
+* For rendering dynamic content use templating / mustache templates. ``{{ }}``
+* For rendering partials, use an extra ``>``. {{``>``partialname}}
+* Server does not restart when new templates are created so express and hbs cannot see the changes. This can be resolved by changing the nodemon scripts.
+    ``` bash
+    nodemon src/app.js -e js,hbs
+* 
 
 
 ## Steps

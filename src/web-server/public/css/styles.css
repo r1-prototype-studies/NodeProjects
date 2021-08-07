@@ -2,5 +2,26 @@ h1 {
 	color: gray;
 }
 img {
-	width: 500px;
+	width: 300px;
+}
+
+a {
+	margin: 5px;
+}
+header {
+	text-align: center;
+	font-size: xx-large;
+	font-weight: bold;
+	margin: 30px;
+	margin-top: 20px;
+}
+footer {
+	text-align: center;
+	font: xx-small;
+	font-style: italic;
+	margin-top: 35px;
+}
+
+.navigation {
+	text-align: center;
 }
