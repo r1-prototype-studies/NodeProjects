@@ -1,27 +1,50 @@
-h1 {
-	color: gray;
-}
-img {
+.image {
 	width: 300px;
 }
 
-a {
-	margin: 5px;
-}
 header {
 	text-align: center;
-	font-size: xx-large;
 	font-weight: bold;
-	margin: 30px;
-	margin-top: 20px;
+	margin-top: 16px;
+	margin-bottom: 30px;
 }
+.navigation {
+	margin-bottom: 15px;
+}
+
+.navigation a {
+	color: #222222;
+	margin-right: 16px;
+	text-decoration: none;
+}
+
 footer {
 	text-align: center;
 	font: xx-small;
 	font-style: italic;
-	margin-top: 35px;
+	margin-top: 16px;
+	padding: 16px 0px;
+	color: #222222;
+	border-top: 1px solid #eeeeee;
 }
 
-.navigation {
-	text-align: center;
+body {
+	color: #223311;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	margin: 0 auto;
+	max-width: 650px;
+	padding: 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: 64px;
+	margin-bottom: 16px;
+}
+
+.container {
+	flex-grow: 1;
 }
