@@ -1,3 +1,5 @@
+const mapService = require('./services/mapService');
+const weatherService = require('./services/weatherService');
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
@@ -50,11 +52,39 @@ app.get('/help', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-	const data = {
-		location: 'philadelphia',
-		forecast: 'It is sunny.',
+	var address = req.query.address;
+	if (!address) {
+		res.send({ error: 'Please enter an address' });
+	}
+
+	mapService.getLocation(
+		address,
+		(error, { latitude, longitude, location }) => {
+			if (error) {
+				res.send({ error });
+			} else {
+				getWeather(latitude, longitude, location);
+			}
+		}
+	);
+
+	const getWeather = (latitude, longitude, location) => {
+		weatherService.getWeather(
+			latitude,
+			longitude,
+			(error, { weather, temperature, feelslike, precip }) => {
+				if (error) {
+					res.send({ error });
+				} else {
+					res.send({
+						forecast: `Weather in ${location} is ${weather}. It is currently ${temperature} degrees outside. It feels like ${feelslike} degrees out. There is a ${precip}% chance of rain`,
+						address,
+						location,
+					});
+				}
+			}
+		);
 	};
-	res.send(data);
 });
 
 app.get('/help/*', (req, res) => {

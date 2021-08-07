@@ -148,7 +148,8 @@
 * Server does not restart when new templates are created so express and hbs cannot see the changes. This can be resolved by changing the nodemon scripts.
     ``` bash
     nodemon src/app.js -e js,hbs
-* 
+* ``public`` &rarr; has the public servable contents like html, styles, scripts
+* ``view`` &rarr; dynamic rendering views
 
 
 ## Steps
@@ -161,8 +162,9 @@
 3. Install hbs module using the below command
     ``` bash
     npm install hbs
-4. ``public`` &rarr; has the public servable contents like html, styles, scripts
-5. ``view`` &rarr; dynamic rendering views
+4. Install request module using the below command
+    ``` bash
+    npm install request
 
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                                        |
@@ -170,6 +172,7 @@
 | 1      | express     | npm         | provides a robust set of features for web and mobile applications              |
 | 2      | path        | core        | utilities for working with file and directory paths                            |
 | 3      | hbs         | npm         | handlebars plugin for express. Helps in dynamic content rendering / templating |
+| 4      | request     | npm package | To make http calls                                                             |
 
 
 
