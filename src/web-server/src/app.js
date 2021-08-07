@@ -57,6 +57,24 @@ app.get('/weather', (req, res) => {
 	res.send(data);
 });
 
+app.get('/help/*', (req, res) => {
+	const renderData = {
+		title: 'Help',
+		errorMessage: 'Help Article not found',
+		name: 'R1 Enterprises',
+	};
+	res.render('404', renderData);
+});
+
+app.get('*', (req, res) => {
+	const renderData = {
+		title: '404',
+		errorMessage: 'My 404 Page',
+		name: 'R1 Enterprises',
+	};
+	res.render('404', renderData);
+});
+
 app.listen(12345, () => {
 	console.log('Server is up and running on port 12345');
 });
