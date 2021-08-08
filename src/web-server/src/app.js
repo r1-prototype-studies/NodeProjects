@@ -4,6 +4,9 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 
+// Port number
+const port = process.env.PORT || 12345;
+
 // console.log(__dirname);
 // console.log(__filename);
 // console.log(path.join(__dirname, '../public'));
@@ -105,6 +108,6 @@ app.get('*', (req, res) => {
 	res.render('404', renderData);
 });
 
-app.listen(12345, () => {
-	console.log('Server is up and running on port 12345');
+app.listen(port, () => {
+	console.log(`Server is up and running on port ${port}`);
 });
