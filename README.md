@@ -15,7 +15,7 @@
   - [Steps](#steps-2)
   - [Modules used](#modules-used-2)
   - [References](#references-2)
-- [Tasks Application](#tasks-application)
+- [Task Manager Application](#task-manager-application)
   - [Notes](#notes-3)
   - [Steps](#steps-3)
   - [Modules used](#modules-used-3)
@@ -244,7 +244,7 @@
     Promise --> Pending   -->
                               \
                                 rejected (reject is called)
-* 
+* Mongoose is a ODM (Object Document Mapper)
 
 
 ## Steps
@@ -260,11 +260,20 @@
 6. Install nodemon and setup the dev script
     ``` bash
     npm install nodemon --save-dev
-7. 
+7. Install mongoose
+    ``` Bash
+    npm install mongoose
+8. Install validator
+    ``` Bash
+    npm install validator
+
 ## Modules used
-| Sl No. | Module Name | Module Type | Purpose                   |
-| ------ | ----------- | ----------- | ------------------------- |
-| 1      | mongodb     | npm         | Connect to Mongo database |
+| Sl No. | Module Name | Module Type | Purpose                              |
+| ------ | ----------- | ----------- | ------------------------------------ |
+| 1      | mongodb     | npm         | Connect to Mongo database            |
+| 2      | mongoose    | npm         | Mongo ODM                            |
+| 3      | validator   | npm         | to validate and sanitize the strings |
+
 ## References
 * https://www.mongodb.com/
 * https://robomongo.org/
@@ -272,3 +281,4 @@
 * https://stackoverflow.com/questions/68412072/nodejs-mongodb-insertone-get-the-inserted-document-from-result-ops
 * https://cloud.mongodb.com/v2/610f6249c0b72408655d3861#clusters
 * https://docs.mongodb.com/manual/reference/operator/update/
+* https://mongoosejs.com/
