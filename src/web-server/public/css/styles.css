@@ -48,3 +48,18 @@ h1 {
 .container {
 	flex-grow: 1;
 }
+
+#error {
+	color: red;
+}
+
+input {
+	border: 1px solid #222222;
+	padding: 6px;
+}
+
+button {
+	cursor: pointer;
+	border: 1px solid #222222;
+	padding: 6px;
+}

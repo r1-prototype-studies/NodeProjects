@@ -150,6 +150,10 @@
     nodemon src/app.js -e js,hbs
 * ``public`` &rarr; has the public servable contents like html, styles, scripts
 * ``view`` &rarr; dynamic rendering views
+* Fetch is not part of javascript. It is part of the browser.
+* Generate ssh keys for Git and Heroku communications. id_rsa is private and should not be shared. only id_rsa.pub which is public should be shared. 
+* 
+
 
 
 ## Steps
@@ -165,6 +169,32 @@
 4. Install request module using the below command
     ``` bash
     npm install request
+5. Sign up in Heroku
+6. Install Heroku cli
+7. Open powershell and enter the below command 
+    ``` bash
+    heroku login
+8. Open Git Bash and run the below commands to generate ssh and register it in local machine.
+    ``` bash
+    ls -a -l ~/.ssh
+    ssh-keygen -t rsa -b 4096 -C "emailaddress"
+    eval "$(ssh-agent -s)"
+    ssh-add
+    cat ~/.ssh/id_rsa.pub
+9. Register the ssh key in github &rarr; https://github.com/settings/keys
+10. Run the below command in Git bash 
+    ``` Bash
+     ssh -T git@github.com
+11. Enter yes if this prompt comes up &rarr; "The authenticity of host 'github.com (140.82.113.3)' can't be established."
+12. Enter the below command in powershell 
+    ``` bash
+    heroku keys:add
+    heroku create r1-weather-application
+13. After changing the start script in packages.json, run the below command to start the application.
+    ``` Bash
+    npm run start
+14. 
+
 
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                                        |
@@ -174,20 +204,10 @@
 | 3      | hbs         | npm         | handlebars plugin for express. Helps in dynamic content rendering / templating |
 | 4      | request     | npm package | To make http calls                                                             |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## References
 * https://expressjs.com/
+* https://dashboard.heroku.com/apps
+* https://devcenter.heroku.com/articles/heroku-cli
+* https://r1-weather-application.herokuapp.com/
+* https://git.heroku.com/r1-weather-application.git
+
