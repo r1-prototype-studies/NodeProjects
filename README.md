@@ -152,9 +152,7 @@
 * ``view`` &rarr; dynamic rendering views
 * Fetch is not part of javascript. It is part of the browser.
 * Generate ssh keys for Git and Heroku communications. id_rsa is private and should not be shared. only id_rsa.pub which is public should be shared. 
-* 
-
-
+* Don't use global module installation in Node because these global modules should be installed in all the machines
 
 ## Steps
 1. Run the below command in the project root directory
@@ -203,8 +201,12 @@
     ``` bash
     git subtree split --prefix src/web-server -b deploy
     git push heroku deploy:main
-17. 
-
+17. Uninstall nodemon globally
+    ``` Bash
+    npm uninstall -g nodemon
+18. install nodemon as a local dev dependency
+    ``` Bash
+    npm install nodemon --save-dev
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                                        |
 | ------ | ----------- | ----------- | ------------------------------------------------------------------------------ |
