@@ -193,8 +193,17 @@
 13. After changing the start script in packages.json, run the below command to start the application.
     ``` Bash
     npm run start
-14. 
-
+14. Enter git remote and check the remote. If heroku is not present, enter the below command in powershell 
+    ``` Bash
+    heroku git:remote --app r1-weather-application
+15. Enter the below command in powershell to push the code to heroku. 
+    ``` Bash
+    git push heroku main
+16. The above command may get error due to the source code in the sub directory. so instead use the below commands
+    ``` bash
+    git subtree split --prefix src/web-server -b deploy
+    git push heroku deploy:main
+17. 
 
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                                        |
@@ -210,4 +219,6 @@
 * https://devcenter.heroku.com/articles/heroku-cli
 * https://r1-weather-application.herokuapp.com/
 * https://git.heroku.com/r1-weather-application.git
+* https://jtway.co/deploying-subdirectory-projects-to-heroku-f31ed65f3f2
+* https://stackoverflow.com/questions/67990094/the-library-is-not-added-to-the-git-via-the-git-subtree
 
