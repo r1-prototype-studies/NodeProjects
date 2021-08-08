@@ -15,6 +15,11 @@
   - [Steps](#steps-2)
   - [Modules used](#modules-used-2)
   - [References](#references-2)
+- [Tasks Application](#tasks-application)
+  - [Notes](#notes-3)
+  - [Steps](#steps-3)
+  - [Modules used](#modules-used-3)
+  - [References](#references-3)
 # Notes App
 ## Notes
 * Use Asynchronous or callback functions.
@@ -111,8 +116,6 @@
     ```
     ``` cmd
     Lays 10 15 undefined
-* 
-
  ## Steps
 1. Signup in weatherstack.com &rarr; 6637c8d7a2df469dea2117ded3eaec77
 2. Run the below command in the project root directory
@@ -207,6 +210,7 @@
 18. install nodemon as a local dev dependency
     ``` Bash
     npm install nodemon --save-dev
+    ```
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                                        |
 | ------ | ----------- | ----------- | ------------------------------------------------------------------------------ |
@@ -224,3 +228,47 @@
 * https://jtway.co/deploying-subdirectory-projects-to-heroku-f31ed65f3f2
 * https://stackoverflow.com/questions/67990094/the-library-is-not-added-to-the-git-via-the-git-subtree
 
+# Task Manager Application
+## Notes
+* NoSQL means Not Only SQL (Structured Query Language)
+* Instead of localhost use 127.0.0.1. For some reasons, after sometime it is failing.
+* More connections are opened in MongoDb because those are opened in pools.
+* ``_id`` (generated objectId) in mongoDb collection has the timestamp in it. 
+* ``_id`` is stores as objectId which is binary instead of string because binary takes less space than string. Binary takes 12 bits whereas string takes 24 bits. 
+* Promises is an enhancement to callback. In callback pattern, we will have only one callback funciton and we have to understand from the returned values for error and data. In promises, there are 2 callback functions, resolve and reject and use then and catch. 
+* In callback pattern, we can set both error and data. But in promise, only resolve or reject will work. Even if we set both only the first one will work.
+* In callback patern, the callback function can be called multiple times. But in promise, only once either resolve or reject will be called. 
+    ``` 
+                                fulfilled (resolve is called)
+                              /    
+    Promise --> Pending   -->
+                              \
+                                rejected (reject is called)
+* 
+
+
+## Steps
+1. Sign up in Mongo DB
+2. Setup a cloud database
+3. Install Robo 3t
+4. Initialize npm in the root folder
+    ``` bash
+    npm init -y
+5. Install mongodb
+    ``` Bash
+    npm install mongodb
+6. Install nodemon and setup the dev script
+    ``` bash
+    npm install nodemon --save-dev
+7. 
+## Modules used
+| Sl No. | Module Name | Module Type | Purpose                   |
+| ------ | ----------- | ----------- | ------------------------- |
+| 1      | mongodb     | npm         | Connect to Mongo database |
+## References
+* https://www.mongodb.com/
+* https://robomongo.org/
+* https://mongodb.github.io/node-mongodb-native/4.0/
+* https://stackoverflow.com/questions/68412072/nodejs-mongodb-insertone-get-the-inserted-document-from-result-ops
+* https://cloud.mongodb.com/v2/610f6249c0b72408655d3861#clusters
+* https://docs.mongodb.com/manual/reference/operator/update/
