@@ -248,9 +248,9 @@
 * The below line automatically parses the incoming json to an object. 
     ``` javascript
     app.use(express.json());
-* Async function always return promise
-* Await can be used only in async function
-
+* ``async`` function always return promise
+* ``await`` can be used only in async function
+* ``every()`` method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value
 
 
 ## Steps
