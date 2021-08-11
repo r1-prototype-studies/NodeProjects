@@ -24,7 +24,7 @@ app.get('/users/:id', async (req, res) => {
 	try {
 		const user = await User.findById(req.params.id);
 		if (!user) {
-			res.status(404).send();
+			return res.status(404).send();
 		}
 		res.status(200).send(user);
 	} catch (error) {
@@ -66,7 +66,7 @@ app.patch('/users/:id', async (req, res) => {
 			allowedUpdates.includes(update)
 		);
 		if (!isValidOperation) {
-			res.status(400).send({ error: 'Invalid operation' });
+			return res.status(400).send({ error: 'Invalid operation' });
 		}
 
 		// The new: true --> will return the new updated user
@@ -77,7 +77,7 @@ app.patch('/users/:id', async (req, res) => {
 		});
 
 		if (!user) {
-			res.status(404).send();
+			return res.status(404).send();
 		}
 		res.status(202).send(user);
 	} catch (error) {
@@ -101,7 +101,7 @@ app.get('/tasks/:id', async (req, res) => {
 	try {
 		const task = await Task.findById(req.params.id);
 		if (!task) {
-			res.status(404).send();
+			return res.status(404).send();
 		}
 		res.status(200).send(task);
 	} catch (error) {
@@ -143,7 +143,7 @@ app.patch('/tasks/:id', async (req, res) => {
 			allowedUpdates.includes(update)
 		);
 		if (!isValidOperation) {
-			res.status(400).send({ error: 'Invalid operation' });
+			return res.status(400).send({ error: 'Invalid operation' });
 		}
 
 		// The new: true --> will return the new updated user
@@ -154,7 +154,7 @@ app.patch('/tasks/:id', async (req, res) => {
 		});
 
 		if (!task) {
-			res.status(404).send();
+			return res.status(404).send();
 		}
 		res.status(202).send(task);
 	} catch (error) {
