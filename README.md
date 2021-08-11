@@ -248,7 +248,9 @@
 * The below line automatically parses the incoming json to an object. 
     ``` javascript
     app.use(express.json());
-*
+* Async function always return promise
+* Await can be used only in async function
+
 
 
 ## Steps

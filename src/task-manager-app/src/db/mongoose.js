@@ -7,6 +7,7 @@ mongoose.connect(connectionUrl, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useCreateIndex: true, // When Mongoose interacts with DB, it interacts with index and the operations will be quicker
+	useFindAndModify: false, // To resolve the deprecation message. https://mongoosejs.com/docs/deprecations.html#findandmodify
 });
 
 // const me = new User({
