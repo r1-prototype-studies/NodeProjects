@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon src/app.js",
+		"dev": "nodemon src/index.js",
+		"start": "nodemon src/index.js",
 		"mongo": "nodemon src/mongoDbTest.js",
 		"mongoose": "nodemon src/db/mongoose.js"
 	},
@@ -12,6 +13,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"express": "^4.17.1",
 		"mongodb": "^4.1.0",
 		"mongoose": "^5.13.5",
 		"validator": "^13.6.0"

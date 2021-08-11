@@ -245,6 +245,10 @@
                               \
                                 rejected (reject is called)
 * Mongoose is a ODM (Object Document Mapper)
+* The below line automatically parses the incoming json to an object. 
+    ``` javascript
+    app.use(express.json());
+*
 
 
 ## Steps
@@ -266,14 +270,17 @@
 8. Install validator
     ``` Bash
     npm install validator
+9. Install express
+    ``` Bash
+    npm install express
 
 ## Modules used
-| Sl No. | Module Name | Module Type | Purpose                              |
-| ------ | ----------- | ----------- | ------------------------------------ |
-| 1      | mongodb     | npm         | Connect to Mongo database            |
-| 2      | mongoose    | npm         | Mongo ODM                            |
-| 3      | validator   | npm         | to validate and sanitize the strings |
-
+| Sl No. | Module Name | Module Type | Purpose                                                           |
+| ------ | ----------- | ----------- | ----------------------------------------------------------------- |
+| 1      | mongodb     | npm         | Connect to Mongo database                                         |
+| 2      | mongoose    | npm         | Mongo ODM                                                         |
+| 3      | validator   | npm         | to validate and sanitize the strings                              |
+| 4-     | express     | npm         | provides a robust set of features for web and mobile applications |
 ## References
 * https://www.mongodb.com/
 * https://robomongo.org/
@@ -282,3 +289,4 @@
 * https://cloud.mongodb.com/v2/610f6249c0b72408655d3861#clusters
 * https://docs.mongodb.com/manual/reference/operator/update/
 * https://mongoosejs.com/
+* https://httpstatuses.com/
