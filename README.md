@@ -251,7 +251,11 @@
 * ``async`` function always return promise
 * ``await`` can be used only in async function
 * ``every()`` method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value
-
+* The below code can be used to setup routers in different file
+    ``` javascript
+    const router = new express.Router();
+    app.use(router);
+* 
 
 ## Steps
 1. Sign up in Mongo DB
