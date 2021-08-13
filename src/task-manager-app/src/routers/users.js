@@ -70,9 +70,31 @@ router.post('/users/login', async (req, res) => {
 			req.body.password
 		);
 		const token = await user.generateToken();
-		res.send({ user, token });
+		res.send({ user: user.getPublicProfile(), token });
 	} catch (error) {
 		res.status(400).send({ error: error.message });
+	}
+});
+
+router.post('/users/logout', auth, async (req, res) => {
+	try {
+		req.user.tokens = req.user.tokens.filter(
+			token => token.token !== req.token
+		);
+		await req.user.save();
+		res.send('Logged out successfully');
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+router.post('/users/logoutAll', auth, async (req, res) => {
+	try {
+		req.user.tokens = [];
+		await req.user.save();
+		res.send('Logged out successfully');
+	} catch (error) {
+		res.status(500).send(error);
 	}
 });
 
@@ -104,28 +126,6 @@ router.patch('/users/:id', auth, async (req, res) => {
 		res.status(202).send(user);
 	} catch (error) {
 		res.status(400).send(error);
-	}
-});
-
-router.post('/users/logout', auth, async (req, res) => {
-	try {
-		req.user.tokens = req.user.tokens.filter(
-			token => token.token !== req.token
-		);
-		await req.user.save();
-		res.send('Logged out successfully');
-	} catch (error) {
-		res.status(500).send(error);
-	}
-});
-
-router.post('/users/logoutAll', auth, async (req, res) => {
-	try {
-		req.user.tokens = [];
-		await req.user.save();
-		res.send('Logged out successfully');
-	} catch (error) {
-		res.status(500).send(error);
 	}
 });
 
