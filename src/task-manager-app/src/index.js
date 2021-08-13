@@ -11,5 +11,5 @@ app.use(userRouter);
 app.use(taskRouter);
 
 app.listen(port, () => {
-	console.log(`Application is srarted and running at ${port}`);
+	console.log(`Application is started and running at ${port}`);
 });

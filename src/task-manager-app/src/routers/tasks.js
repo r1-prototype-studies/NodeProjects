@@ -65,14 +65,19 @@ router.patch('/tasks/:id', async (req, res) => {
 
 		// The new: true --> will return the new updated user
 		// runValidators: true --> validate the user object before updating it
-		const task = await Task.findByIdAndUpdate(req.params.id, req.body, {
-			new: true,
-			runValidators: true,
-		});
+		// const task = await Task.findByIdAndUpdate(req.params.id, req.body, {
+		// 	new: true,
+		// 	runValidators: true,
+		// });
+
+		const task = await Task.findById(req.params.id);
 
 		if (!task) {
 			return res.status(404).send();
 		}
+
+		updates.forEach(update => (task[update] = req.body[update]));
+		await task.save();
 		res.status(202).send(task);
 	} catch (error) {
 		res.status(400).send(error);

@@ -255,7 +255,10 @@
     ``` javascript
     const router = new express.Router();
     app.use(router);
-* 
+* Difference between hashing and encryption is that in encryption we can get the original data. But hashing is a one way algorithm so it cannot be reversed.
+* Middleware (also called pre and post hooks) are functions which are passed control during execution of asynchronous functions.
+* Arrow function cannot be used in the middleware because ``this`` is used. So we should use normal function
+* middleware will not work in findbyidUpdate opertion. So circumvent that first find, update the user and then save it. 
 
 ## Steps
 1. Sign up in Mongo DB
@@ -279,6 +282,9 @@
 9. Install express
     ``` Bash
     npm install express
+10. Install bcryptjs
+    ``` Bash
+    npm install bcryptjs
 
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose                                                           |
@@ -286,7 +292,8 @@
 | 1      | mongodb     | npm         | Connect to Mongo database                                         |
 | 2      | mongoose    | npm         | Mongo ODM                                                         |
 | 3      | validator   | npm         | to validate and sanitize the strings                              |
-| 4-     | express     | npm         | provides a robust set of features for web and mobile applications |
+| 4      | express     | npm         | provides a robust set of features for web and mobile applications |
+| 5      | bcryptjs    | npm         | Helps to hash passwords                                           |
 ## References
 * https://www.mongodb.com/
 * https://robomongo.org/
