@@ -259,6 +259,11 @@
 * Middleware (also called pre and post hooks) are functions which are passed control during execution of asynchronous functions.
 * Arrow function cannot be used in the middleware because ``this`` is used. So we should use normal function
 * middleware will not work in findbyidUpdate opertion. So circumvent that first find, update the user and then save it. 
+* JWT has two 3 parts seperated by ".".
+    * Base64 encoded header information.
+    * Base64 encoded body information.
+    * Base64 encoded signature information.
+
 
 ## Steps
 1. Sign up in Mongo DB
@@ -285,15 +290,21 @@
 10. Install bcryptjs
     ``` Bash
     npm install bcryptjs
+11. Install jsonwebtoken
+    ``` Bash
+    npm install jsonwebtoken
+12. 
+
 
 ## Modules used
-| Sl No. | Module Name | Module Type | Purpose                                                           |
-| ------ | ----------- | ----------- | ----------------------------------------------------------------- |
-| 1      | mongodb     | npm         | Connect to Mongo database                                         |
-| 2      | mongoose    | npm         | Mongo ODM                                                         |
-| 3      | validator   | npm         | to validate and sanitize the strings                              |
-| 4      | express     | npm         | provides a robust set of features for web and mobile applications |
-| 5      | bcryptjs    | npm         | Helps to hash passwords                                           |
+| Sl No. | Module Name  | Module Type | Purpose                                                           |
+| ------ | ------------ | ----------- | ----------------------------------------------------------------- |
+| 1      | mongodb      | npm         | Connect to Mongo database                                         |
+| 2      | mongoose     | npm         | Mongo ODM                                                         |
+| 3      | validator    | npm         | to validate and sanitize the strings                              |
+| 4      | express      | npm         | provides a robust set of features for web and mobile applications |
+| 5      | bcryptjs     | npm         | Helps to hash passwords                                           |
+| 6      | jsonwebtoken | npm         | JWT support                                                       |
 ## References
 * https://www.mongodb.com/
 * https://robomongo.org/
@@ -303,3 +314,4 @@
 * https://docs.mongodb.com/manual/reference/operator/update/
 * https://mongoosejs.com/
 * https://httpstatuses.com/
+* https://www.base64decode.org/
