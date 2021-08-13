@@ -263,7 +263,11 @@
     * Base64 encoded header information.
     * Base64 encoded body information.
     * Base64 encoded signature information.
-
+* Express middleware
+    * Without middleware:   ``New Request`` &rarr; ``Run Route Handling``
+    * With middleware:     ``New Request`` &rarr; ``Do Something`` &rarr; ``Run Route Handling``
+    * Modify the behaviour of the server to fit our needs.
+    * Should be registered before we use other ``app.use`` methods.
 
 ## Steps
 1. Sign up in Mongo DB
