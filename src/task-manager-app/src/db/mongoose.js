@@ -8,6 +8,7 @@ mongoose.connect(connectionUrl, {
 	useUnifiedTopology: true,
 	useCreateIndex: true, // When Mongoose interacts with DB, it interacts with index and the operations will be quicker
 	useFindAndModify: false, // To resolve the deprecation message. https://mongoosejs.com/docs/deprecations.html#findandmodify
+	autoIndex: true, // To resolve unique index issues https://dev.to/akshatsinghania/mongoose-unique-not-working-16bf
 });
 
 // const me = new User({
