@@ -129,6 +129,33 @@ router.patch('/users/:id', auth, async (req, res) => {
 	}
 });
 
+router.patch('/users', auth, async (req, res) => {
+	try {
+		const updates = Object.keys(req.body);
+		const allowedUpdates = ['name', 'password', 'age'];
+		const isValidOperation = updates.every(update =>
+			allowedUpdates.includes(update)
+		);
+		if (!isValidOperation) {
+			return res.status(400).send({ error: 'Invalid operation' });
+		}
+
+		// The new: true --> will return the new updated user
+		// runValidators: true --> validate the user object before updating it
+		// const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+		// 	new: true,
+		// 	runValidators: true,
+		// });
+
+		updates.forEach(update => (req.user[update] = req.body[update]));
+		await req.user.save();
+
+		res.status(202).send(req.user);
+	} catch (error) {
+		res.status(400).send(error);
+	}
+});
+
 router.delete('/users/:id', auth, async (req, res) => {
 	try {
 		const user = await User.findByIdAndDelete(req.params.id);
@@ -137,6 +164,15 @@ router.delete('/users/:id', auth, async (req, res) => {
 			return res.status(404).send();
 		}
 		res.send(user);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+router.delete('/users', auth, async (req, res) => {
+	try {
+		await req.user.remove();
+		res.send(req.user);
 	} catch (error) {
 		res.status(500).send(error);
 	}
