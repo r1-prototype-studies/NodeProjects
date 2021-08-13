@@ -6,9 +6,11 @@ const router = new express.Router();
 
 router.get('/tasks', auth, async (req, res) => {
 	try {
-		const task = await Task.find();
-		res.status(200).send(task);
+		//const task = await Task.find();
+		await req.user.populate('tasks').execPopulate();
+		res.status(200).send(req.user.tasks);
 	} catch (error) {
+		console.log(error);
 		res.status(500).send(error);
 	}
 	// Task.find()
@@ -18,10 +20,15 @@ router.get('/tasks', auth, async (req, res) => {
 
 router.get('/tasks/:id', auth, async (req, res) => {
 	try {
-		const task = await Task.findById(req.params.id);
+		//const task = await Task.findById(req.params.id);
+		const task = await Task.findOne({
+			_id: req.params.id,
+			owner: req.user._id,
+		});
 		if (!task) {
 			return res.status(404).send();
 		}
+
 		res.status(200).send(task);
 	} catch (error) {
 		res.status(500).send(error);
@@ -38,7 +45,11 @@ router.get('/tasks/:id', auth, async (req, res) => {
 
 router.post('/tasks', auth, async (req, res) => {
 	try {
-		const task = new Task(req.body);
+		//const task = new Task(req.body);
+		const task = new Task({
+			...req.body,
+			owner: req.user._id,
+		});
 		await task.save();
 		res.status(201).send(task);
 	} catch (error) {
@@ -72,7 +83,11 @@ router.patch('/tasks/:id', auth, async (req, res) => {
 		// 	runValidators: true,
 		// });
 
-		const task = await Task.findById(req.params.id);
+		//const task = await Task.findById(req.params.id);
+		const task = await Task.findOne({
+			_id: req.params.id,
+			owner: req.user._id,
+		});
 
 		if (!task) {
 			return res.status(404).send();
@@ -88,7 +103,11 @@ router.patch('/tasks/:id', auth, async (req, res) => {
 
 router.delete('/tasks/:id', auth, async (req, res) => {
 	try {
-		const task = await Task.findByIdAndDelete(req.params.id);
+		//const task = await Task.findByIdAndDelete(req.params.id);
+		const task = await Task.findOneAndDelete({
+			_id: req.params.id,
+			owner: req.user._id,
+		});
 
 		if (!task) {
 			return res.status(404).send();

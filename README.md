@@ -268,6 +268,8 @@
     * With middleware:     ``New Request`` &rarr; ``Do Something`` &rarr; ``Run Route Handling``
     * Modify the behaviour of the server to fit our needs.
     * Should be registered before we use other ``app.use`` methods.
+* Type for _id in MongoDB is ``mongoose.Schema.Types.ObjectId``
+* ``populate`` allows us to populate the data from a relationship. To actually populate, invoke the method ``execPopulate()``
 
 ## Steps
 1. Sign up in Mongo DB

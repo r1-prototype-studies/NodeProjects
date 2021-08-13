@@ -18,6 +18,8 @@ router.get('/users', auth, async (req, res) => {
 
 router.get('/users/me', auth, async (req, res) => {
 	try {
+		await req.user.populate('tasks').execPopulate();
+		console.log(req.user.tasks);
 		res.status(200).send(req.user);
 	} catch (error) {
 		res.status(500).send(error);
