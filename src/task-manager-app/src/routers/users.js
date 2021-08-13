@@ -70,7 +70,7 @@ router.post('/users/login', async (req, res) => {
 			req.body.password
 		);
 		const token = await user.generateToken();
-		res.send({ user: user.getPublicProfile(), token });
+		res.send({ user, token });
 	} catch (error) {
 		res.status(400).send({ error: error.message });
 	}
