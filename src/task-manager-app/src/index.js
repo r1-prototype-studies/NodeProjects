@@ -15,9 +15,9 @@ const port = process.env.PORT || 12345;
 // });
 
 // Set up Maintenance
-app.use((req, res, next) => {
-	res.status(503).send('Under Maintenance. Try again later');
-});
+// app.use((req, res, next) => {
+// 	res.status(503).send('Under Maintenance. Try again later');
+// });
 
 // To make express use json
 app.use(express.json());
