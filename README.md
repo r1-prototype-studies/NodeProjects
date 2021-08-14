@@ -270,6 +270,8 @@
     * Should be registered before we use other ``app.use`` methods.
 * Type for _id in MongoDB is ``mongoose.Schema.Types.ObjectId``
 * ``populate`` allows us to populate the data from a relationship. To actually populate, invoke the method ``execPopulate()``
+* ``parseInt`` to convert to number
+* For sorting 1 &rarr; ascending -1 &rarr; descending
 
 ## Steps
 1. Sign up in Mongo DB

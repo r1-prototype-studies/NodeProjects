@@ -6,6 +6,7 @@ const router = new express.Router();
 
 //GET /tasks?completed=false/true
 //GET /tasks?limit=?&skip=?
+//GET /tasks?sortby=CreatedAt:desc/:asc
 router.get('/tasks', auth, async (req, res) => {
 	try {
 		const match = {};
@@ -22,6 +23,12 @@ router.get('/tasks', auth, async (req, res) => {
 			options.skip = parseInt(req.query.skip);
 		}
 
+		if (req.query.sortby) {
+			options.sort = {};
+			const parts = req.query.sortby.split(':');
+			options.sort[parts[0]] = parts[1] === 'desc' ? -1 : 1;
+		}
+		console.log(options);
 		//const task = await Task.find();
 		await req.user
 			.populate({
