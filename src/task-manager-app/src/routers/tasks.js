@@ -5,11 +5,21 @@ const auth = require('../middlewares/auth');
 const router = new express.Router();
 
 //GET /tasks?completed=false/true
+//GET /tasks?limit=?&skip=?
 router.get('/tasks', auth, async (req, res) => {
 	try {
 		const match = {};
+		const options = {};
 		if (req.query.completed) {
 			match.completed = req.query.completed === 'true';
+		}
+
+		if (req.query.limit) {
+			options.limit = parseInt(req.query.limit);
+		}
+
+		if (req.query.skip) {
+			options.skip = parseInt(req.query.skip);
 		}
 
 		//const task = await Task.find();
@@ -17,6 +27,7 @@ router.get('/tasks', auth, async (req, res) => {
 			.populate({
 				path: 'tasks',
 				match,
+				options,
 			})
 			.execPopulate();
 		res.status(200).send(req.user.tasks);
