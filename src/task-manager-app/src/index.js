@@ -6,14 +6,6 @@ const taskRouter = require('./routers/tasks');
 const app = express();
 const port = process.env.PORT || 12345;
 
-// app.use((req, res, next) => {
-// 	console.log(req.method, req.path);
-// 	if (req.method === 'GET') {
-// 		return res.send();
-// 	}
-// 	next();
-// });
-
 // Set up Maintenance
 // app.use((req, res, next) => {
 // 	res.status(503).send('Under Maintenance. Try again later');
