@@ -4,10 +4,21 @@ const auth = require('../middlewares/auth');
 
 const router = new express.Router();
 
+//GET /tasks?completed=false/true
 router.get('/tasks', auth, async (req, res) => {
 	try {
+		const match = {};
+		if (req.query.completed) {
+			match.completed = req.query.completed === 'true';
+		}
+
 		//const task = await Task.find();
-		await req.user.populate('tasks').execPopulate();
+		await req.user
+			.populate({
+				path: 'tasks',
+				match,
+			})
+			.execPopulate();
 		res.status(200).send(req.user.tasks);
 	} catch (error) {
 		console.log(error);
