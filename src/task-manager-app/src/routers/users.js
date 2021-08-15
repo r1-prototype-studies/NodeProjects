@@ -183,6 +183,22 @@ router.delete('/users', auth, async (req, res) => {
 
 const upload = multer({
 	dest: 'avatars',
+	limits: {
+		fileSize: 1024 * 1024, // In bytes
+	},
+	fileFilter(req, file, callback) {
+		// Accept only pdf files
+		//if (!file.originalname.endsWith('.pdf')) {
+		// if (!file.originalname.match(/\.(doc|docx)$/)) {
+		// 	return callback(new Error('Please upload a word file'));
+		// }
+		// callback(undefined, true);
+
+		if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+			return callback(new Error('Please upload a picture'));
+		}
+		callback(undefined, true);
+	},
 });
 
 router.post('/users/me/avatar', upload.single('avatar'), (req, res) => {
