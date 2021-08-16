@@ -309,7 +309,9 @@
 12. Install multer
     ``` Bash
     npm install jsonwebtoken
-13.
+13. Install sharp
+    ``` Bash
+    npm install sharp
 
 
 ## Modules used
@@ -322,6 +324,7 @@
 | 5      | bcryptjs     | npm         | Helps to hash passwords                                           |
 | 6      | jsonwebtoken | npm         | JWT support                                                       |
 | 7      | multer       | npm         | handles multipart/form-data. primarily used for uploading files   |
+| 8      | sharp        | npm         | Image processing                                                  |
 ## References
 * https://www.mongodb.com/
 * https://robomongo.org/
