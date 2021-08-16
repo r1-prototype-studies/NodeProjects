@@ -277,6 +277,8 @@
 * HTML element to render binary image
     ``` HTML
     <img src="data:image/jpg;base64,{{binary}}">
+* Restart the app whenever we change the environment file.
+
 
 ## Steps
 1. Sign up in Mongo DB
@@ -312,6 +314,14 @@
 13. Install sharp
     ``` Bash
     npm install sharp
+14. Sign up in sendgrid
+15. Install Sendgrid
+    ``` Bash
+    npm install @sendgrid/mail
+16. Install env-cmd
+    ``` bash
+    npm install env-cmd --save-dev
+
 
 
 ## Modules used
@@ -325,6 +335,7 @@
 | 6      | jsonwebtoken | npm         | JWT support                                                       |
 | 7      | multer       | npm         | handles multipart/form-data. primarily used for uploading files   |
 | 8      | sharp        | npm         | Image processing                                                  |
+| 9      | env-cmd      | npm         | to execute environment commands from an environment file          |
 ## References
 * https://www.mongodb.com/
 * https://robomongo.org/
@@ -337,3 +348,5 @@
 * https://www.base64decode.org/
 * https://dev.to/akshatsinghania/mongoose-unique-not-working-16bf
 * https://regex101.com/
+* https://app.sendgrid.com/guide/integrate/langs/nodejs
+* https://temp-mail.org/en/

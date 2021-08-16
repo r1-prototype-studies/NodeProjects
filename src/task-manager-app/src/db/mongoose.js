@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionUrl =
-	'mongodb+srv://admin:admin@cluster0.ju4ey.mongodb.net/task-manager-api?retryWrites=true&w=majority';
+const connectionUrl = process.env.DB_CONNECTION;
 
 mongoose.connect(connectionUrl, {
 	useNewUrlParser: true,

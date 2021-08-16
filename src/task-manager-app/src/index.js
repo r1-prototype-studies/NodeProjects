@@ -4,7 +4,7 @@ const userRouter = require('./routers/users');
 const taskRouter = require('./routers/tasks');
 
 const app = express();
-const port = process.env.PORT || 12345;
+const port = process.env.PORT;
 
 // Set up Maintenance
 // app.use((req, res, next) => {
