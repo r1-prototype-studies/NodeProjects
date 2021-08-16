@@ -321,6 +321,23 @@
 16. Install env-cmd
     ``` bash
     npm install env-cmd --save-dev
+17. Run the below command to create Heroku application
+    ``` bash
+    heroku create r1-task-manager-api
+18. Set the environment variables in Heroku application. If it has special characters enclose the value within ""
+    ``` Bash
+    heroku config:set {key}={value} --app r1-task-manager-api
+    heroku config:unset SENDGRID_API_KEY --app r1-task-manager-api
+19. Enter git remote and check the remote. If heroku is not present, enter the below command in powershell 
+    ``` Bash
+    heroku git:remote --app r1-task-manager-api
+20. Enter the below command in powershell to push the code to heroku. 
+    ``` Bash
+    git push heroku main
+21. The above command may get error due to the source code in the sub directory. so instead use the below commands
+    ``` bash
+    git subtree split --prefix src/task-manager-app -b taskdeploy
+    git push heroku taskdeploy:main -f
 
 
 
@@ -350,3 +367,5 @@
 * https://regex101.com/
 * https://app.sendgrid.com/guide/integrate/langs/nodejs
 * https://temp-mail.org/en/
+* https://stackoverflow.com/questions/56301852/env-cmd-error-failed-to-locate-env-file-in-gatsby
+* https://r1-task-manager-api.herokuapp.com/
