@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const User = require('../models/users');
 const auth = require('../middlewares/auth');
+//const errorMiddleware = require('../middlewares/error');
 
 const router = new express.Router();
 
@@ -182,7 +183,7 @@ router.delete('/users', auth, async (req, res) => {
 });
 
 const upload = multer({
-	dest: 'avatars',
+	//dest: 'avatars', // File directory to store the file
 	limits: {
 		fileSize: 1024 * 1024, // In bytes
 	},
@@ -201,12 +202,39 @@ const upload = multer({
 	},
 });
 
-router.post('/users/me/avatar', upload.single('avatar'), (req, res) => {
-	try {
-		res.send();
-	} catch (error) {
-		res.status(500).send(error);
+router.post(
+	'/users/me/avatar',
+	auth,
+	upload.single('avatar'),
+	async (req, res) => {
+		try {
+			req.user.avatar = req.file.buffer;
+			await req.user.save();
+			res.send('Picture saved successfully');
+		} catch (error) {
+			res.status(500).send(error.message);
+		}
+	},
+	(error, req, res, next) => {
+		res.status(400).send({ error: error.message });
 	}
-});
+);
+
+router.delete(
+	'/users/me/avatar',
+	auth,
+	async (req, res) => {
+		try {
+			req.user.avatar = undefined;
+			await req.user.save();
+			res.send('Picture removed successfully');
+		} catch (error) {
+			res.status(500).send(error.message);
+		}
+	},
+	(error, req, res, next) => {
+		res.status(400).send({ error: error.message });
+	}
+);
 
 module.exports = router;

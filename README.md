@@ -272,6 +272,11 @@
 * ``populate`` allows us to populate the data from a relationship. To actually populate, invoke the method ``execPopulate()``
 * ``parseInt`` to convert to number
 * For sorting 1 &rarr; ascending -1 &rarr; descending
+* ``multer`` provides an error message as a html document. To change that, add the error handling as a callback to the request handler.
+* Filesystem will be wiped whenever we deploy new code.
+* HTML element to render binary image
+    ``` HTML
+    <img src="data:image/jpg;base64,{{binary}}">
 
 ## Steps
 1. Sign up in Mongo DB
