@@ -31,6 +31,7 @@ router.get('/users/me', auth, async (req, res) => {
 router.get('/users/:id', auth, async (req, res) => {
 	try {
 		const user = await User.findById(req.params.id);
+		console.log({ 1: user });
 		if (!user) {
 			return res.status(404).send();
 		}
@@ -236,5 +237,18 @@ router.delete(
 		res.status(400).send({ error: error.message });
 	}
 );
+
+router.get('/users/:id/avatar', async (req, res) => {
+	try {
+		const user = await User.findById(req.params.id);
+		if (!user || !user.avatar) {
+			res.status(400).send();
+		}
+		res.set('Content-Type', 'image/jpg');
+		res.send(user.avatar);
+	} catch (error) {
+		res.status(400).send();
+	}
+});
 
 module.exports = router;
