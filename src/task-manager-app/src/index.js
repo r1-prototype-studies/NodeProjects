@@ -16,6 +16,10 @@ app.use(express.json());
 // Different routes
 app.use(userRouter);
 app.use(taskRouter);
+app.get('/testing', (req, res) => {
+	console.log('Testing endpoint');
+	res.send('App is up and running');
+});
 
 app.listen(port, () => {
 	console.log(`Application is started and running at ${port}`);
