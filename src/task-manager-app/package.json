@@ -7,7 +7,11 @@
 		"dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
 		"start": "node src/index.js",
 		"mongo": "nodemon src/mongoDbTest.js",
-		"mongoose": "nodemon src/db/mongoose.js"
+		"mongoose": "nodemon src/db/mongoose.js",
+		"test": "env-cmd -f ./config/test.env jest"
+	},
+	"jest": {
+		"testEnvironment": "node"
 	},
 	"keywords": [],
 	"author": "",
@@ -25,6 +29,8 @@
 	},
 	"devDependencies": {
 		"env-cmd": "^10.1.0",
-		"nodemon": "^2.0.12"
+		"jest": "^27.0.6",
+		"nodemon": "^2.0.12",
+		"supertest": "^6.1.5"
 	}
 }

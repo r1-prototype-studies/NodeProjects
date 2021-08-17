@@ -20,6 +20,11 @@
   - [Steps](#steps-3)
   - [Modules used](#modules-used-3)
   - [References](#references-3)
+- [Testing Task Manager API](#testing-task-manager-api)
+  - [Notes](#notes-4)
+  - [Steps](#steps-4)
+  - [Modules used](#modules-used-4)
+  - [References](#references-4)
 # Notes App
 ## Notes
 * Use Asynchronous or callback functions.
@@ -279,7 +284,6 @@
     <img src="data:image/jpg;base64,{{binary}}">
 * Restart the app whenever we change the environment file.
 
-
 ## Steps
 1. Sign up in Mongo DB
 2. Setup a cloud database
@@ -334,12 +338,10 @@
 20. Enter the below command in powershell to push the code to heroku. 
     ``` Bash
     git push heroku main
-21. The above command may get error due to the source code in the sub directory. so instead use the below commands
+21. The above command may get error due to the source code in the sub directory. so instead use the below commands. 
     ``` bash
     git subtree split --prefix src/task-manager-app -b taskdeploy
     git push heroku taskdeploy:main -f
-
-
 
 ## Modules used
 | Sl No. | Module Name  | Module Type | Purpose                                                           |
@@ -369,3 +371,36 @@
 * https://temp-mail.org/en/
 * https://stackoverflow.com/questions/56301852/env-cmd-error-failed-to-locate-env-file-in-gatsby
 * https://r1-task-manager-api.herokuapp.com/
+
+# Testing Task Manager API
+## Notes
+* Testing modules are needed only in development mode. 
+* Files that have testcases should have ``.test.js`` so jest will know that it has to run that test.
+* Use test script for configuring test.
+    ``` json
+    "test": "jest"
+* The below command will make the test to run continously like nodemon
+    ``` json
+    "test": "jest --watch"
+* By default, the testing environment for Jest is ``jsdom``. We can set it to node by using the jest configuration.
+
+
+
+
+## Steps
+1. Install jest
+    ``` bash
+    npm install jest --save-dev
+2. 
+
+## Modules used
+| Sl No. | Module Name | Module Type | Purpose          |
+| ------ | ----------- | ----------- | ---------------- |
+| 1      | jest        | npm         | Testing          |
+| 2      | superfast   | npm         | for testing http |
+
+## References
+* https://jestjs.io/
+* https://mochajs.org/
+* https://jestjs.io/docs/expect
+* https://jestjs.io/docs/cli

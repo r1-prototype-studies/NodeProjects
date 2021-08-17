@@ -106,3 +106,4 @@ dist
 # TernJS port file
 .tern-port
 src/task-manager-app/config/dev.env
+src/task-manager-app/config/test.env
