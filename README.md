@@ -385,6 +385,7 @@
 * By default, the testing environment for Jest is ``jsdom``. We can set it to node by using the jest configuration.
 * mocks directory which jest will look for is ``__mock__``
 * ``toBe`` in expect is ``===``. toBe does not work great with objects. 
+* ``--runInBand`` Jest configuration makes the test suites to run in series rather than the default behaviour of running in parallel.
 
 
 

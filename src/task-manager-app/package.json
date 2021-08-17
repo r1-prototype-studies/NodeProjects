@@ -8,7 +8,7 @@
 		"start": "node src/index.js",
 		"mongo": "nodemon src/mongoDbTest.js",
 		"mongoose": "nodemon src/db/mongoose.js",
-		"test": "env-cmd -f ./config/test.env jest"
+		"test": "env-cmd -f ./config/test.env jest --runInBand"
 	},
 	"jest": {
 		"testEnvironment": "node"
