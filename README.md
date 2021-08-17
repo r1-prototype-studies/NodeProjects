@@ -384,7 +384,7 @@
     "test": "jest --watch"
 * By default, the testing environment for Jest is ``jsdom``. We can set it to node by using the jest configuration.
 * mocks directory which jest will look for is ``__mock__``
-
+* ``toBe`` in expect is ``===``. toBe does not work great with objects. 
 
 
 
