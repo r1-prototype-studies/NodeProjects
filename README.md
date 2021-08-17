@@ -383,6 +383,7 @@
     ``` json
     "test": "jest --watch"
 * By default, the testing environment for Jest is ``jsdom``. We can set it to node by using the jest configuration.
+* mocks directory which jest will look for is ``__mock__``
 
 
 
@@ -391,13 +392,15 @@
 1. Install jest
     ``` bash
     npm install jest --save-dev
-2. 
+2. Install supertest
+    ``` bash
+    npm install supertest --save-dev
 
 ## Modules used
 | Sl No. | Module Name | Module Type | Purpose          |
 | ------ | ----------- | ----------- | ---------------- |
 | 1      | jest        | npm         | Testing          |
-| 2      | superfast   | npm         | for testing http |
+| 2      | supertest   | npm         | for testing http |
 
 ## References
 * https://jestjs.io/
