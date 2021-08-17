@@ -10,6 +10,7 @@ mongoose.connect(connectionUrl, {
 	autoIndex: true, // To resolve unique index issues https://dev.to/akshatsinghania/mongoose-unique-not-working-16bf
 });
 
+module.exports = mongoose;
 // const me = new User({
 // 	name: 'Joshua',
 // 	email: 'JOSHUA@gmail.com',

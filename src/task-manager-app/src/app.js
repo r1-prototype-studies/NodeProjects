@@ -1,5 +1,5 @@
 const express = require('express');
-require('./db/mongoose'); // we don't need anything from this file but we need to run this file.
+const mongoose = require('./db/mongoose'); // we don't need anything from this file but we need to run this file.
 const userRouter = require('./routers/users');
 const taskRouter = require('./routers/tasks');
 
@@ -11,4 +11,4 @@ app.use(express.json());
 app.use(userRouter);
 app.use(taskRouter);
 
-module.exports = app;
+module.exports = { app, mongoose };
