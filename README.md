@@ -25,6 +25,11 @@
   - [Steps](#steps-4)
   - [Modules used](#modules-used-4)
   - [References](#references-4)
+- [Chat Application](#chat-application)
+  - [Notes](#notes-5)
+  - [Steps](#steps-5)
+  - [Modules used](#modules-used-5)
+  - [References](#references-5)
 # Notes App
 ## Notes
 * Use Asynchronous or callback functions.
@@ -387,8 +392,6 @@
 * ``toBe`` in expect is ``===``. toBe does not work great with objects. 
 * ``--runInBand`` Jest configuration makes the test suites to run in series rather than the default behaviour of running in parallel.
 
-
-
 ## Steps
 1. Install jest
     ``` bash
@@ -408,3 +411,28 @@
 * https://mochajs.org/
 * https://jestjs.io/docs/expect
 * https://jestjs.io/docs/cli
+
+# Chat Application
+## Notes
+* IO sends messages to all the connected sockets where socket will send message only to the socket which emitted.
+
+## Steps 
+1. Install nodemon as a dev dependency 
+    ``` bash
+    npm install nodemon --save-dev
+2. Install express
+    ``` Bash
+    npm install express
+3. Install socket.io
+    ``` Bash
+    npm install socket.io
+
+## Modules used 
+| Sl No. | Module Name | Module Type | Purpose                                                           |
+| ------ | ----------- | ----------- | ----------------------------------------------------------------- |
+| 1      | express     | npm         | provides a robust set of features for web and mobile applications |
+| 2      | path        | core        | utilities for working with file and directory paths               |
+| 2      | socket.io   | npm         | real time event based communication                               |
+
+## References 
+* https://socket.io/
